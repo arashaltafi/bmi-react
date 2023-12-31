@@ -9,5 +9,6 @@
     "male": "Male",
     "cm": "cm",
     "show_info": "Show Info",
-    "bmi_result": "BMI Result"
+    "bmi_result": "BMI Result",
+    "bmi_result_text": "Your So Fat!!!"
 }

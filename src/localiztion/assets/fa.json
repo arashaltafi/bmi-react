@@ -9,5 +9,6 @@
     "male": "مرد",
     "cm": "سانتی متر",
     "show_info": "نمایش اطلاعات",
-    "bmi_result": "نتیجه BMI"
+    "bmi_result": "نتیجه BMI",
+    "bmi_result_text": "شما خیلی چاق هستید!!!"
 }
