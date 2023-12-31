@@ -5,6 +5,8 @@ import { store } from "./redux/Store";
 import ScrollToTop from "./Hoc/ScrollToTop";
 import Hoc from "./Hoc/Hoc";
 import Home from "./components/Home";
+import Info from "./components/Info";
+import Result from "./components/Result";
 
 const App = () => {
 
@@ -23,6 +25,8 @@ const App = () => {
           <Route element={<ScrollToTop />}>
             <Route element={<Hoc />}>
               <Route path='/' element={<Home />} />
+              <Route path='/' element={<Info />} />
+              <Route path='/' element={<Result />} />
             </Route>
           </Route>
         </Routes>
