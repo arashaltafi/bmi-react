@@ -2,7 +2,6 @@ import { useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { useLocation, useNavigate } from "react-router";
 import locationSlice from "../redux/locationSlice";
-import { Link } from "react-router-dom";
 import { IoIosFemale } from "react-icons/io";
 import { IoIosMale } from "react-icons/io";
 import { FaPlus } from "react-icons/fa6";
@@ -49,13 +48,13 @@ const Home = () => {
     <div className="flex flex-col gap-4 bg-slate-100 dark:bg-slate-900 py-4 px-4 overflow-hidden">
       <h1 className="h2">BMI Calculator</h1>
       <div className="w-full h-[calc(100vh-6rem)] grid grid-cols-2 grid-rows-5 gap-x-6 gap-y-4">
-        <div className="bg-item flex items-center justify-center gap-x-4 hover:bg-sky-600 rounded-tr-3xl cursor-pointer">
+        <div className="bg-item flex items-center justify-center gap-x-4 hover:scale[101%] hover:bg-sky-600 rounded-tr-3xl cursor-pointer">
           <div className="h1 flex flex-row gap-4">
             <IoIosFemale />
             <p className="h1">زن</p>
           </div>
         </div>
-        <div className="bg-item flex items-center justify-center gap-x-4 hover:bg-sky-600 rounded-tl-3xl cursor-pointer">
+        <div className="bg-item flex items-center justify-center gap-x-4 hover:scale[101%] hover:bg-sky-600 rounded-tl-3xl cursor-pointer">
           <div className="h1 flex flex-row gap-4">
             <IoIosMale />
             <p className="h1">مرد</p>
@@ -66,7 +65,7 @@ const Home = () => {
         </div>
         <div className="bg-item row-span-4 rounded-bl-3xl flex flex-col overflow-hidden items-center justify-center gap-4">
           <p className="h5">قد</p>
-          <input id='inputHeight' min={0} max={120} className="bg-slate-800 flex-1 rotate-90" type="range" />
+          <input id='inputHeight' min={0} max={120} className="bg-slate-100 dark:bg-slate-800 flex-1 rotate-90" type="range" />
           <p className="h5">175cm</p>
         </div>
         <div className="bg-item row-span-2 rounded-br-3xl flex flex-col">
