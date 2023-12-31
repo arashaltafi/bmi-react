@@ -7,5 +7,7 @@
     "age": "Age",
     "female": "Female",
     "male": "Male",
-    "cm": "cm"
+    "cm": "cm",
+    "show_info": "Show Info",
+    "bmi_result": "BMI Result"
 }
