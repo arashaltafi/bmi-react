@@ -1,12 +1,11 @@
 import { useEffect } from "react";
-import { Provider } from "react-redux"
-import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
-import { store } from "./redux/Store";
+import { Route, Routes } from 'react-router-dom';
 import ScrollToTop from "./Hoc/ScrollToTop";
 import Hoc from "./Hoc/Hoc";
 import Home from "./components/Home";
 import Info from "./components/Info";
 import Result from "./components/Result";
+import NotFound from "./components/NotFound";
 
 const App = () => {
 
@@ -19,19 +18,16 @@ const App = () => {
   }, [])
 
   return (
-    <Router basename='/'>
-      <Provider store={store}>
-        <Routes>
-          <Route element={<ScrollToTop />}>
-            <Route element={<Hoc />}>
-              <Route path='/' element={<Home />} />
-              <Route path='/' element={<Info />} />
-              <Route path='/' element={<Result />} />
-            </Route>
-          </Route>
-        </Routes>
-      </Provider>
-    </Router>
+    <Routes>
+      <Route element={<ScrollToTop />}>
+        <Route element={<Hoc />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/info" element={<Info />} />
+          <Route path="/result" element={<Result />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Route>
+    </Routes>
   )
 }
 
