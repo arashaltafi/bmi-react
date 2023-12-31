@@ -22,6 +22,7 @@ export default {
     },
   },
   plugins: [
+    require('flowbite/plugin'),
     function ({ addVariant }) {
       addVariant("child", "& > *")
       addVariant("child-hover", "& > *:hover")
