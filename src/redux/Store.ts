@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
-import numberSlice from './numberSlice'
 import locationSlice from './locationSlice'
+import bmiSlice from './BmiSlice'
 
 export const store = configureStore({
     reducer: {
-        numbers: numberSlice.reducer,
+        bmi: bmiSlice.reducer,
         location: locationSlice.reducer,
     },
 })

@@ -10,6 +10,7 @@ import { MdOutlineNightlight } from "react-icons/md";
 import { WiDaySunny } from "react-icons/wi";
 import { MdLanguage } from "react-icons/md";
 import { useTranslation } from 'react-i18next';
+import bmiSlice from "../redux/BmiSlice";
 
 const Home = () => {
   const location = useLocation();
@@ -18,6 +19,7 @@ const Home = () => {
   const [height, setHeight] = useState<number>(170)
   const [weight, setWeight] = useState<number>(80)
   const [age, setAge] = useState<number>(26)
+  const [isMale, setIsMale] = useState<boolean>(true)
   const inputHeight = useRef<any>(null)
   const { t, i18n } = useTranslation();
 
@@ -54,7 +56,15 @@ const Home = () => {
     setHeight(e.target.value)
   }
 
+  const updateIsMale = (isMale: boolean) => {
+    setIsMale(isMale)
+  }
+
   const handleToNavigate = () => {
+    dispatch(bmiSlice.actions.setAge(age));
+    dispatch(bmiSlice.actions.setHeight(height));
+    dispatch(bmiSlice.actions.setWeight(weight));
+    dispatch(bmiSlice.actions.setIsMale(true));
     navigate('/info')
   }
 
@@ -93,13 +103,13 @@ const Home = () => {
         </div>
       </div>
       <section className="w-full h-[calc(100vh-7rem)] grid grid-cols-2 grid-rows-5 gap-x-6 gap-y-4">
-        <div className="bg-item flex items-center justify-center gap-x-4 hover:scale[101%] hover:bg-sky-600 rounded-tr-3xl cursor-pointer">
+        <div onClick={() => updateIsMale(false)} className={`bg-item flex items-center justify-center gap-x-4 hover:scale[101%] hover:bg-sky-600 rounded-tr-3xl cursor-pointer ${isMale ? '' : 'bg-sky-500'}`}>
           <div className="h1 flex flex-row gap-4">
             <IoIosFemale />
             <p className="h1">{t('female')}</p>
           </div>
         </div>
-        <div className="bg-item flex items-center justify-center gap-x-4 hover:scale[101%] hover:bg-sky-600 rounded-tl-3xl cursor-pointer">
+        <div onClick={() => updateIsMale(true)} className={`bg-item flex items-center justify-center gap-x-4 hover:scale[101%] hover:bg-sky-600 rounded-tl-3xl cursor-pointer ${isMale ? 'bg-sky-500' : ''}`}>
           <div className="h1 flex flex-row gap-4">
             <IoIosMale />
             <p className="h1">{t('male')}</p>
