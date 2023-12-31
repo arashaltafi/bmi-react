@@ -18,7 +18,7 @@ const App = () => {
   }, [])
 
   return (
-    <div className="w-full md:w-2/3 lg:w-1/2 xl:w-1/3 h-screen mx-auto">
+    <div className="w-full md:w-[70%] lg:w-1/2 xl:w-[40%] h-screen mx-auto">
       <Routes>
         <Route element={<ScrollToTop />}>
           <Route element={<Hoc />}>
