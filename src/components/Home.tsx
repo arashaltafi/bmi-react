@@ -54,7 +54,9 @@ const Home = () => {
         <div className="bg-item row-span-4 rounded-bl-3xl">Weight</div>
         <div className="bg-item row-span-2">Height</div>
         <div className="bg-item row-span-2 rounded-br-3xl">Age</div>
-        <button onClick={changeTheme} className="btn-primary col-span-2">Let's Begin</button>
+        <button onClick={changeTheme} className="btn-primary col-span-2 text-xl">
+          Let's Begin
+        </button>
       </div>
     </div>
   )
