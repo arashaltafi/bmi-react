@@ -99,7 +99,7 @@ const Home = () => {
   }
 
   return (
-    <div className="flex flex-col gap-4 bg-slate-100 dark:bg-slate-900 py-4 px-4">
+    <div className="w-full h-screen flex flex-col gap-4 bg-slate-100 dark:bg-slate-900 py-4 px-4">
       <div className="div-row mx-4">
         <MdLanguage onClick={changeLang} className='bg-action' />
         <h1 className="h2 flex-1">{t('bmi_calculator')}</h1>

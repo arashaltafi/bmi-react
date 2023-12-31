@@ -27,19 +27,20 @@ const Result = () => {
 
   const handleNavigateBack = () => {
     dispatch(bmiSlice.actions.setResult(''));
-    navigate('/home')
+    navigate('/')
   }
 
   return (
-    <div className="flex flex-col gap-4 bg-slate-100 dark:bg-slate-900 py-4 px-4">
+    <div className="w-full h-screen flex flex-col gap-4 bg-slate-100 dark:bg-slate-900 py-4 px-4">
       <div className="flex flex-row items-center justify-between mx-4">
         <span></span>
         <h1 className="h2">{t('bmi_result')}</h1>
         <IoIosArrowBack onClick={handleNavigateBack} className='bg-action w-12 h-12' />
       </div>
 
-      <div className="flex flex-col">
-
+      <div className="flex flex-col flex-1">
+        <h3 className="h3">{t('bmi_result')}</h3>
+        <p className="p">{bmiSelector.result}</p>
       </div>
 
       <button onClick={handleToNavigate} className="btn-primary col-span-2 text-xl">
