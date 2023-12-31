@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useLocation, useNavigate } from "react-router";
 import locationSlice from "../redux/locationSlice";
@@ -11,12 +11,18 @@ const Home = () => {
   const location = useLocation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [height, setHeight] = useState<number>(170)
+  const inputHeight = useRef<any>(null)
 
   useEffect(() => {
     dispatch(locationSlice.actions.addLocation([{
       pathName: location.pathname,
       isLoaded: true
     }]));
+
+    if (inputHeight) {
+      inputHeight.current.value = height.toString();
+    }
   }, [])
 
   const handleToNavigate = () => {
@@ -36,13 +42,9 @@ const Home = () => {
     }
   }
 
-  useEffect(() => {
-    const inputHeight = document.querySelector('#inputHeight')
-    inputHeight?.addEventListener('input', (event: any) => {
-      const value = event.target.value;
-      console.log(value);
-    })
-  }, [])
+  const updateHeight = (e: any) => {
+    setHeight(e.target.value)
+  }
 
   return (
     <div className="flex flex-col gap-4 bg-slate-100 dark:bg-slate-900 py-4 px-4 overflow-hidden">
@@ -65,8 +67,11 @@ const Home = () => {
         </div>
         <div className="bg-item row-span-4 rounded-bl-3xl flex flex-col overflow-hidden items-center justify-center gap-4">
           <p className="h5">قد</p>
-          <input id='inputHeight' min={0} max={120} className="bg-slate-100 dark:bg-slate-800 flex-1 rotate-90" type="range" />
-          <p className="h5">175cm</p>
+          <input ref={inputHeight} onChange={(e) => updateHeight(e)} min={0} max={250} className="bg-slate-100 dark:bg-slate-800 flex-1 rotate-90" type="range" />
+          <div className="flex-row flex gap-2">
+            <p className="h5 font-bold">{height}</p>
+            <p className="h5">سانتی متر</p>
+          </div>
         </div>
         <div className="bg-item row-span-2 rounded-br-3xl flex flex-col">
           <p className="flex-1 h5">سن</p>
