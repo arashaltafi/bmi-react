@@ -39,7 +39,7 @@ const Info = () => {
   }
 
   return (
-    <div className="w-full h-screen flex flex-col gap-4 bg-slate-100 dark:bg-slate-900 py-4 px-4">
+    <div className="w-full h-screen flex flex-col gap-16 bg-slate-100 dark:bg-slate-900 py-4 px-4">
       <div className="div-row mx-4">
         <FaAngleRight onClick={handleNavigateBack} className='bg-action' />
         <h1 className="h2 flex-1">{t('bmi_info')}</h1>
@@ -49,6 +49,37 @@ const Info = () => {
         </div>
       </div>
 
+      <section className="bg-item flex flex-row items-center justify-center gap-2">
+        <span className="text-red-500 h4">OverWeight</span><p className="h4">Your BMI {26.12}</p>
+      </section>
+
+      <section className='bg-item flex-1 flex flex-col items-center justify-start gap-4 py-8 child:w-full child:px-4'>
+        <div className="flex flex-row items-center justify-between">
+          <p className="h5">test 1</p>
+          <p className="h5">test 1</p>
+        </div>
+
+        <span className="w-full h-[1px] opacity-50 bg-slate-900 dark:bg-slate-100 my-2"></span>
+
+        <div className="flex flex-row items-center justify-between">
+          <p className="h5">test 1</p>
+          <p className="h5">test 1</p>
+        </div>
+
+        <span className="w-full h-[1px] opacity-50 bg-slate-900 dark:bg-slate-100 my-2"></span>
+
+        <div className="flex flex-row items-center justify-between">
+          <p className="h5">test 1</p>
+          <p className="h5">test 1</p>
+        </div>
+
+        <span className="w-full h-[1px] opacity-50 bg-slate-900 dark:bg-slate-100 my-2"></span>
+
+        <div className="flex flex-row items-center justify-between">
+          <p className="h5">test 1</p>
+          <p className="h5">test 1</p>
+        </div>
+      </section>
     </div>
   )
 }
