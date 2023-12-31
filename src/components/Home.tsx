@@ -62,8 +62,17 @@ const Home = () => {
             <p className="h1">مرد</p>
           </div>
         </div>
-        <div className="bg-item row-span-2">
-          <p className="h5">وزن</p>
+        <div className="bg-item row-span-2 flex flex-col">
+          <p className="flex-1 h5">وزن</p>
+          <p className="flex-1 h1">25</p>
+          <div className="flex-1 flex flex-row gap-6 items-center justify-center">
+            <button className="bg-slate-300 dark:bg-slate-900 p-6 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700">
+              <FaPlus />
+            </button>
+            <button className="bg-slate-300 dark:bg-slate-900 p-6 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700">
+              <FaMinus />
+            </button>
+          </div>
         </div>
         <div className="bg-item row-span-4 rounded-bl-3xl flex flex-col overflow-hidden items-center justify-center gap-4">
           <p className="h5">قد</p>
