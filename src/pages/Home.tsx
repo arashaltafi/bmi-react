@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router";
 import locationSlice from "../redux/locationSlice";
 import { IoIosFemale } from "react-icons/io";
@@ -15,10 +15,11 @@ import bmiSlice from "../redux/BmiSlice";
 const Home = () => {
   const location = useLocation();
   const dispatch = useDispatch();
+  const bmiSelector = useSelector((state: any) => state.bmi);
   const navigate = useNavigate();
-  const [height, setHeight] = useState<number>(170)
-  const [weight, setWeight] = useState<number>(80)
-  const [age, setAge] = useState<number>(26)
+  const [height, setHeight] = useState<number>(0)
+  const [weight, setWeight] = useState<number>(0)
+  const [age, setAge] = useState<number>(0)
   const [isMale, setIsMale] = useState<boolean>(true)
   const inputHeight = useRef<any>(null)
   const { t, i18n } = useTranslation();
@@ -29,11 +30,16 @@ const Home = () => {
       isLoaded: true
     }]));
 
-    if (inputHeight) {
-      inputHeight.current.value = height.toString();
-    }
-
     i18n.changeLanguage(localStorage.getItem('lang') || 'fa');
+
+    setAge(bmiSelector.age)
+    setHeight(bmiSelector.height)
+    setWeight(bmiSelector.weight)
+    setIsMale(bmiSelector.isMale)
+
+    if (inputHeight) {
+      inputHeight.current.value = bmiSelector.height.toString();
+    }
   }, [])
 
   const updateWeight = (isIncrement: boolean) => {
@@ -64,8 +70,8 @@ const Home = () => {
     dispatch(bmiSlice.actions.setAge(age));
     dispatch(bmiSlice.actions.setHeight(height));
     dispatch(bmiSlice.actions.setWeight(weight));
-    dispatch(bmiSlice.actions.setIsMale(true));
-    navigate('/info')
+    dispatch(bmiSlice.actions.setIsMale(isMale));
+    navigate('/result')
   }
 
   const changeTheme = () => {

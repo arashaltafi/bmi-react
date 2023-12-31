@@ -9,9 +9,9 @@ interface NumberState {
 }
 
 const initialState: NumberState = {
-    weight: 0,
-    height: 0,
-    age: 0,
+    weight: 80,
+    height: 170,
+    age: 26,
     isMale: true,
     result: ''
 }
@@ -24,10 +24,10 @@ const bmiSlice = createSlice({
             state.age = action.payload;
         },
         setWeight: (state, action: PayloadAction<number>) => {
-            state.age = action.payload;
+            state.weight = action.payload;
         },
         setHeight: (state, action: PayloadAction<number>) => {
-            state.age = action.payload;
+            state.height = action.payload;
         },
         setIsMale: (state, action: PayloadAction<boolean>) => {
             state.isMale = action.payload;

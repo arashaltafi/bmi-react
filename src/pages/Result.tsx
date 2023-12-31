@@ -1,11 +1,12 @@
 import { useEffect } from "react";
 import locationSlice from "../redux/locationSlice";
 import { useLocation } from "react-router";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const Result = () => {
   const location = useLocation();
   const dispatch = useDispatch();
+  const bmiSelector = useSelector((state: any) => state.bmi);
 
   useEffect(() => {
     dispatch(locationSlice.actions.addLocation([{
@@ -15,7 +16,9 @@ const Result = () => {
   }, [])
 
   return (
-    <h1 className="h1">Result</h1>
+    <div className="div-col">
+
+    </div>
   )
 }
 
