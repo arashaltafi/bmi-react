@@ -72,6 +72,10 @@
     @apply text-lg text-slate-900 dark:text-slate-300 text-center
   }
 
+  .h6 {
+    @apply flex items-center justify-center text-sm text-slate-900 dark:text-slate-300 text-center
+  }
+
   .btn {
     @apply px-4 py-3 bg-slate-900 dark:text-slate-100 text-center rounded-xl shadow-md shadow-black cursor-pointer hover:underline hover:bg-slate-700 active:scale-[101%];
   }

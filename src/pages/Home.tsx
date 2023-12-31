@@ -16,6 +16,8 @@ const Home = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [height, setHeight] = useState<number>(170)
+  const [weight, setWeight] = useState<number>(80)
+  const [age, setAge] = useState<number>(26)
   const inputHeight = useRef<any>(null)
   const { t, i18n } = useTranslation();
 
@@ -32,6 +34,26 @@ const Home = () => {
     i18n.changeLanguage(localStorage.getItem('lang') || 'fa');
   }, [])
 
+  const updateWeight = (isIncrement: boolean) => {
+    if (isIncrement) {
+      setWeight(weight + 1)
+    } else {
+      setWeight(weight - 1)
+    }
+  }
+
+  const updateAge = (isIncrement: boolean) => {
+    if (isIncrement) {
+      setAge(age + 1)
+    } else {
+      setAge(age - 1)
+    }
+  }
+
+  const updateHeight = (e: any) => {
+    setHeight(e.target.value)
+  }
+
   const handleToNavigate = () => {
     navigate('/info')
   }
@@ -47,10 +69,6 @@ const Home = () => {
       localStorage.setItem('theme', 'dark');
       document.documentElement.classList.add('dark');
     }
-  }
-
-  const updateHeight = (e: any) => {
-    setHeight(e.target.value)
   }
 
   const changeLang = () => {
@@ -90,12 +108,12 @@ const Home = () => {
 
         <div className="bg-item row-span-2 flex flex-col">
           <p className="flex-1 h5">{t('weight')}</p>
-          <p className="flex-1 h1">25</p>
+          <p className="flex-1 h1">{weight}</p>
           <div className="flex-1 flex flex-row gap-6 items-center justify-center">
-            <button className="bg-slate-300 dark:bg-slate-900 p-6 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 active:scale-95">
+            <button onClick={() => updateWeight(true)} className="bg-slate-300 dark:bg-slate-900 p-6 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 active:scale-95">
               <FaPlus />
             </button>
-            <button className="bg-slate-300 dark:bg-slate-900 p-6 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 active:scale-95">
+            <button onClick={() => updateWeight(false)} className="bg-slate-300 dark:bg-slate-900 p-6 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 active:scale-95">
               <FaMinus />
             </button>
           </div>
@@ -106,18 +124,18 @@ const Home = () => {
           <input ref={inputHeight} onChange={(e) => updateHeight(e)} min={0} max={250} className="bg-slate-100 dark:bg-slate-800 flex-1 rotate-90" type="range" />
           <div className="flex-row flex gap-2">
             <p className="h5 font-bold">{height}</p>
-            <p className="h5">{t('cm')}</p>
+            <p className="h6">{t('cm')}</p>
           </div>
         </div>
 
         <div className="bg-item row-span-2 rounded-br-3xl flex flex-col">
           <p className="flex-1 h5">{t('age')}</p>
-          <p className="flex-1 h1">25</p>
+          <p className="flex-1 h1">{age}</p>
           <div className="flex-1 flex flex-row gap-6 items-center justify-center">
-            <button className="bg-slate-300 dark:bg-slate-900 p-6 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 active:scale-95">
+            <button onClick={() => updateAge(true)} className="bg-slate-300 dark:bg-slate-900 p-6 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 active:scale-95">
               <FaPlus />
             </button>
-            <button className="bg-slate-300 dark:bg-slate-900 p-6 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 active:scale-95">
+            <button onClick={() => updateAge(false)} className="bg-slate-300 dark:bg-slate-900 p-6 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 active:scale-95">
               <FaMinus />
             </button>
           </div>
