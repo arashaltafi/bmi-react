@@ -61,7 +61,6 @@ const Result = () => {
       color = 'red';
     }
 
-    dispatch(bmiSlice.actions.setResult(result));
     setBmiResult(result)
     setBmiColor(color)
   };
@@ -81,7 +80,8 @@ const Result = () => {
 
   const handleToNavigate = (address: string | null) => {
     dispatch(bmiSlice.actions.setResult(''));
-    navigate(address || '/')
+    navigate(address || '/');
+    dispatch(bmiSlice.actions.setResult(bmiResult));
   }
 
   return (

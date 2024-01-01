@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router";
 import locationSlice from "../redux/locationSlice";
 import { useTranslation } from "react-i18next";
@@ -7,11 +7,11 @@ import { FaAngleRight } from "react-icons/fa6";
 import { MdOutlineNightlight } from "react-icons/md";
 import { WiDaySunny } from "react-icons/wi";
 
-
 const Info = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const bmiSelector = useSelector((state: any) => state.bmi);
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -35,7 +35,7 @@ const Info = () => {
   }
 
   const handleNavigateBack = () => {
-    navigate('/result')
+    navigate(-1);
   }
 
   return (
@@ -50,7 +50,7 @@ const Info = () => {
       </div>
 
       <section className="bg-item flex flex-row items-center justify-center gap-2 py-8 mt-4">
-        <span className="text-red-500 h4">OverWeight</span><span className="h1 px-1.5 font-bold">{26.12}</span><p className="h4">Your BMI </p>
+        <span className="text-red-500 h4">{bmiSelector.result}</span><span className="h1 px-1.5 font-bold">{bmiSelector.bmi}</span><p className="h4">Your BMI </p>
       </section>
 
       <section className='bg-item flex-1 flex flex-col items-center justify-start gap-4 py-8 child:w-full child:px-4'>
