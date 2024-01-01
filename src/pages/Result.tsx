@@ -25,7 +25,6 @@ const Result = () => {
     }]));
 
     calculateBMI()
-    getBmiMessage()
   }, [])
 
   const calculateBMI = () => {
@@ -37,22 +36,24 @@ const Result = () => {
 
     dispatch(bmiSlice.actions.setBmi(bmiValue));
     setBmi(bmiValue)
+
+    getBmiMessage(bmiValue)
   };
 
-  const getBmiMessage = () => {
+  const getBmiMessage = (bmiValue: number) => {
     let result = '';
     let color = '';
 
-    if (bmi == 0) {
+    if (bmiValue == 0) {
       result = '';
       color = 'white';
-    } else if (bmi < 18.5) {
+    } else if (bmiValue < 18.5) {
       result = t('underweight');
       color = 'blue';
-    } else if (bmi >= 18.5 && bmi < 24.9) {
+    } else if (bmiValue >= 18.5 && bmiValue < 24.9) {
       result = t('normal_weight');
       color = 'green';
-    } else if (bmi >= 25 && bmi < 29.9) {
+    } else if (bmiValue >= 25 && bmiValue < 29.9) {
       result = t('overweight');
       color = 'yellow';
     } else {
