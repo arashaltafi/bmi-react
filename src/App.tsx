@@ -30,7 +30,7 @@ const App = () => {
   }, [])
 
   return (
-    <div className="w-full md:w-[70%] lg:w-1/2 xl:w-[40%] h-screen mx-auto overflow-hidden">
+    <div className="w-full md:w-[70%] lg:w-1/2 xl:w-[50%] 2xl:w-[40%] h-screen mx-auto overflow-hidden">
       <Routes>
         <Route element={<ScrollToTop />}>
           <Route element={<Hoc />}>
