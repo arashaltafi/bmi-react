@@ -11,5 +11,8 @@
     "show_info": "نمایش اطلاعات",
     "bmi_result": "نتیجه BMI",
     "bmi_info": "توضیحات BMI",
-    "bmi_result_text": "شما خیلی چاق هستید!!!"
+    "underweight": "کمبود وزن",
+    "normal_weight": "وزن نرمال",
+    "overweight": "اضافه وزن",
+    "obese": "چاق"
 }

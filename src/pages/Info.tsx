@@ -12,7 +12,7 @@ const Info = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   useEffect(() => {
     dispatch(locationSlice.actions.addLocation([{

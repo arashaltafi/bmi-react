@@ -13,9 +13,10 @@ const Result = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const bmiSelector = useSelector((state: any) => state.bmi);
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const [bmi, setBmi] = useState<number>(0);
   const [bmiResult, setBmiResult] = useState<string>('');
+  const [bmiColor, setBmiColor] = useState<string>('');
 
   useEffect(() => {
     dispatch(locationSlice.actions.addLocation([{
@@ -40,21 +41,28 @@ const Result = () => {
 
   const getBmiMessage = () => {
     let result = '';
+    let color = '';
 
     if (bmi == 0) {
       result = '';
+      color = 'white';
     } else if (bmi < 18.5) {
-      result = 'Underweight';
+      result = t('underweight');
+      color = 'blue';
     } else if (bmi >= 18.5 && bmi < 24.9) {
-      result = 'Normal weight';
+      result = t('normal_weight');
+      color = 'green';
     } else if (bmi >= 25 && bmi < 29.9) {
-      result = 'Overweight';
+      result = t('overweight');
+      color = 'yellow';
     } else {
-      result = 'Obese';
+      result = t('obese');
+      color = 'red';
     }
 
     dispatch(bmiSlice.actions.setResult(result));
     setBmiResult(result)
+    setBmiColor(color)
   };
 
   const changeTheme = () => {
@@ -87,19 +95,28 @@ const Result = () => {
       </div>
 
       <section className="flex flex-col flex-1 gap-12 items-center justify-center">
-        <div className="flex items-center justify-center w-72 h-72 rounded-full shadow-2xl shadow-slate-300 dark:shadow-slate-950">
-          <div className="flex items-center justify-center w-64 h-64 border-[16px] border-solid border-amber-400 rounded-full shadow-lg shadow-amber-500">
+        <div className="flex items-center justify-center w-72 h-72 rounded-full shadow-2xl shadow-slate-400 dark:shadow-slate-950">
+          <div
+            className={`
+            flex items-center justify-center w-64 h-64 border-[16px] border-solid rounded-full shadow-lg
+            ${bmiColor == 'white' ? 'border-white shadow-white' : ''}
+            ${bmiColor == 'blue' ? 'border-blue-400 shadow-blue-500' : ''} 
+            ${bmiColor == 'green' ? 'border-green-400 shadow-green-500' : ''} 
+            ${bmiColor == 'red' ? 'border-red-400 shadow-red-500' : ''} 
+            ${bmiColor == 'yellow' ? 'border-yellow-400 shadow-yellow-500' : ''}
+        `}
+          >
             <p className="h1 text-5xl font-bold">{bmi}</p>
           </div>
         </div>
 
-        <p className="h5">{bmiResult}</p>
-      </section>
+        <p className="h3">{bmiResult}</p>
+      </section >
 
       <button onClick={() => handleToNavigate('/info')} className="btn-primary col-span-2 text-xl">
         {t('show_info')}
       </button>
-    </div>
+    </div >
   )
 }
 
