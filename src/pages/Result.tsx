@@ -107,11 +107,11 @@ const Result = () => {
             ${bmiColor == 'yellow' ? 'border-yellow-400 shadow-yellow-500' : ''}
         `}
           >
-            <p className="h1 text-5xl font-bold">{bmi}</p>
+            <p className="h1 text-5xl font-bold select-all">{bmi}</p>
           </div>
         </div>
 
-        <p className="h3">{bmiResult}</p>
+        <p className="h3 select-all">{bmiResult}</p>
       </section >
 
       <button onClick={() => handleToNavigate('/info')} className="btn-primary col-span-2 text-xl">

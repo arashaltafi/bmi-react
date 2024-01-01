@@ -11,6 +11,7 @@ import { WiDaySunny } from "react-icons/wi";
 import { MdLanguage } from "react-icons/md";
 import { useTranslation } from 'react-i18next';
 import bmiSlice from "../redux/BmiSlice";
+import Swal from 'sweetalert2'
 
 const Home = () => {
   const location = useLocation();
@@ -83,11 +84,20 @@ const Home = () => {
   }
 
   const handleToNavigate = () => {
-    dispatch(bmiSlice.actions.setAge(age));
-    dispatch(bmiSlice.actions.setHeight(height));
-    dispatch(bmiSlice.actions.setWeight(weight));
-    dispatch(bmiSlice.actions.setIsMale(isMale));
-    navigate('/result')
+    if (age > 0 && height > 0 && weight > 0) {
+      dispatch(bmiSlice.actions.setAge(age));
+      dispatch(bmiSlice.actions.setHeight(height));
+      dispatch(bmiSlice.actions.setWeight(weight));
+      dispatch(bmiSlice.actions.setIsMale(isMale));
+      navigate('/result')
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: `${t('fill_all')}`,
+        confirmButtonText: `${t('ok')}`,
+        showCloseButton: true,
+      });
+    }
   }
 
   const changeTheme = () => {

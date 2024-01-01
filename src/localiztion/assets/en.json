@@ -14,5 +14,7 @@
     "underweight": "Underweight",
     "normal_weight": "Normal Weight",
     "overweight": "Overweight",
-    "obese": "Obese"
+    "obese": "Obese",
+    "fill_all": "Please Fill All Fields",
+    "ok": "Ok"
 }
