@@ -82,6 +82,7 @@ const Result = () => {
     dispatch(bmiSlice.actions.setResult(''));
     navigate(address || '/');
     dispatch(bmiSlice.actions.setResult(bmiResult));
+    dispatch(bmiSlice.actions.setBmiColor(bmiColor));
   }
 
   return (

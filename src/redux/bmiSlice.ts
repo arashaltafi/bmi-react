@@ -6,6 +6,7 @@ interface NumberState {
     age: number,
     isMale: boolean,
     bmi: number,
+    bmiColor: string,
     result: string,
 }
 
@@ -15,6 +16,7 @@ const initialState: NumberState = {
     age: 26,
     isMale: true,
     bmi: 0,
+    bmiColor: '',
     result: ''
 }
 
@@ -36,6 +38,9 @@ const bmiSlice = createSlice({
         },
         setBmi: (state, action: PayloadAction<number>) => {
             state.bmi = action.payload;
+        },
+        setBmiColor: (state, action: PayloadAction<string>) => {
+            state.bmiColor = action.payload;
         },
         setResult: (state, action: PayloadAction<string>) => {
             state.result = action.payload;

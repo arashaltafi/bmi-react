@@ -54,7 +54,16 @@ const Info = () => {
           <p className="h3">{t('your_bmi')}</p>
           <span className="h1 px-1.5 font-bold">{bmiSelector.bmi}</span>
         </div>
-        <span className="text-red-500 h2">{bmiSelector.result}</span>
+        <span className={`
+            h2
+            ${bmiSelector.bmiColor == 'white' ? 'text-white' : ''}
+            ${bmiSelector.bmiColor == 'blue' ? 'text-blue-500' : ''} 
+            ${bmiSelector.bmiColor == 'green' ? 'text-green-500' : ''} 
+            ${bmiSelector.bmiColor == 'red' ? 'text-red-500' : ''} 
+            ${bmiSelector.bmiColor == 'yellow' ? 'text-yellow-500' : ''}
+        `}>
+          {bmiSelector.result}
+        </span>
       </section>
 
       <section className='bg-item flex-1 flex flex-col items-center justify-start gap-4 py-8 child:w-full child:px-4'>
