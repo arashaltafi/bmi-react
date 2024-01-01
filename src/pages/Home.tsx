@@ -10,7 +10,7 @@ import { MdOutlineNightlight } from "react-icons/md";
 import { WiDaySunny } from "react-icons/wi";
 import { MdLanguage } from "react-icons/md";
 import { useTranslation } from 'react-i18next';
-import bmiSlice from "../redux/BmiSlice";
+import bmiSlice from "../redux/bmiSlice";
 import Swal from 'sweetalert2'
 
 const Home = () => {
@@ -32,6 +32,11 @@ const Home = () => {
     }]));
 
     i18n.changeLanguage(localStorage.getItem('lang') || 'fa');
+    if (localStorage.getItem('lang') === 'fa') {
+      document.body.classList.add('font-vazir')
+    } else {
+      document.body.classList.add('font-serif')
+    }
 
     setAge(bmiSelector.age)
     setHeight(bmiSelector.height)
@@ -117,11 +122,13 @@ const Home = () => {
     if (i18n.language === 'en') {
       localStorage.setItem('lang', 'fa');
       i18n.changeLanguage('fa');
+      document.body.classList.add('font-vazir')
     } else {
       localStorage.setItem('lang', 'en')
       i18n.changeLanguage('en');
+      document.body.classList.add('font-serif')
     }
-    // window.location.reload()
+    window.location.reload()
   }
 
   return (
@@ -173,7 +180,9 @@ const Home = () => {
               <FaMinus />
             </button>
           </div>
-          <div className="flex-row flex gap-2">
+          <div className="flex-row flex gap-2" style={{
+            direction: i18n.language === 'fa' ? 'rtl' : 'ltr'
+          }}>
             <p className="h5 font-bold">{height}</p>
             <p className="h6">{t('cm')}</p>
           </div>

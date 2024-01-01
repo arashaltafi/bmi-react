@@ -31,11 +31,18 @@
 
   body {
     @apply bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-slate-100;
-    font-family: "vazir-normal", "vazir-medium", serif, sans-serif, monospace !important;
   }
 }
 
 @layer components {
+  .font-vazir {
+    font-family: "vazir-normal", "vazir-medium", Cambria, Cochin, Georgia, Times, serif, sans-serif, monospace !important;
+  }
+
+  .font-serif {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif "vazir-normal", "vazir-medium" !important;
+  }
+
   .link {
     @apply text-blue-500 text-xl text-center cursor-pointer hover:underline;
   }

@@ -12,7 +12,7 @@ const Info = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const bmiSelector = useSelector((state: any) => state.bmi);
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     dispatch(locationSlice.actions.addLocation([{
@@ -50,7 +50,9 @@ const Info = () => {
       </div>
 
       <section className="bg-item flex flex-col items-center justify-center gap-4 py-8 mt-4">
-        <div className="flex flex-row gap-2 items-center justify-center">
+        <div className="flex flex-row gap-2 items-center justify-center" style={{
+          direction: i18n.language === 'fa' ? 'rtl' : 'ltr'
+        }}>
           <p className="h3">{t('your_bmi')}</p>
           <span className="h1 px-1.5 font-bold">{bmiSelector.bmi}</span>
         </div>
@@ -66,7 +68,9 @@ const Info = () => {
         </span>
       </section>
 
-      <section className='bg-item flex-1 flex flex-col items-center justify-start gap-4 py-8 child:w-full child:px-4'>
+      <section className='bg-item flex-1 flex flex-col items-center justify-start gap-4 py-8 child:w-full child:px-4' style={{
+        direction: i18n.language === 'fa' ? 'rtl' : 'ltr'
+      }}>
         <div className="flex flex-row items-center justify-between">
           <p className="h5">{t('less_than_18')}</p>
           <p className="h5">{t('underweight')}</p>
