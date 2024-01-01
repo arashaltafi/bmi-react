@@ -17,5 +17,9 @@
     "obese": "Obese",
     "fill_all": "Please Fill All Fields",
     "ok": "Ok",
-    "your_bmi": "Your BMI:"
+    "your_bmi": "Your BMI:",
+    "less_than_18": "Less Than 18.4",
+    "18_to_24": "18.5 To 24.9",
+    "25_to_29": "25.0 To 29.9",
+    "30_and_above": "30.0 And Above"
 }

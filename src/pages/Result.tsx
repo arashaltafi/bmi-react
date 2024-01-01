@@ -47,13 +47,13 @@ const Result = () => {
     if (bmiValue == 0) {
       result = '';
       color = 'white';
-    } else if (bmiValue < 18.5) {
+    } else if (bmiValue <= 18.4) {
       result = t('underweight');
       color = 'blue';
-    } else if (bmiValue >= 18.5 && bmiValue < 24.9) {
+    } else if (bmiValue >= 18.5 && bmiValue <= 24.9) {
       result = t('normal_weight');
       color = 'green';
-    } else if (bmiValue >= 25 && bmiValue < 29.9) {
+    } else if (bmiValue >= 25 && bmiValue <= 29.9) {
       result = t('overweight');
       color = 'yellow';
     } else {

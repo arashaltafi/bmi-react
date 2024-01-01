@@ -68,29 +68,29 @@ const Info = () => {
 
       <section className='bg-item flex-1 flex flex-col items-center justify-start gap-4 py-8 child:w-full child:px-4'>
         <div className="flex flex-row items-center justify-between">
-          <p className="h5">test 1</p>
-          <p className="h5">test 1</p>
+          <p className="h5">{t('less_than_18')}</p>
+          <p className="h5">{t('underweight')}</p>
         </div>
 
         <span className="w-full h-[1px] opacity-50 bg-slate-900 dark:bg-slate-100 my-2"></span>
 
         <div className="flex flex-row items-center justify-between">
-          <p className="h5">test 1</p>
-          <p className="h5">test 1</p>
+          <p className="h5">{t('18_to_24')}</p>
+          <p className="h5">{t('normal_weight')}</p>
         </div>
 
         <span className="w-full h-[1px] opacity-50 bg-slate-900 dark:bg-slate-100 my-2"></span>
 
         <div className="flex flex-row items-center justify-between">
-          <p className="h5">test 1</p>
-          <p className="h5">test 1</p>
+          <p className="h5">{t('25_to_29')}</p>
+          <p className="h5">{t('overweight')}</p>
         </div>
 
         <span className="w-full h-[1px] opacity-50 bg-slate-900 dark:bg-slate-100 my-2"></span>
 
         <div className="flex flex-row items-center justify-between">
-          <p className="h5">test 1</p>
-          <p className="h5">test 1</p>
+          <p className="h5">{t('30_and_above')}</p>
+          <p className="h5">{t('obese')}</p>
         </div>
       </section>
     </div>
