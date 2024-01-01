@@ -31,15 +31,6 @@ const Home = () => {
       isLoaded: true
     }]));
 
-    i18n.changeLanguage(localStorage.getItem('lang') || 'fa');
-    if (localStorage.getItem('lang') === 'fa' || !localStorage.getItem('lang')) {
-      document.body.classList.remove('font-serif')
-      document.body.classList.add('font-vazir')
-    } else {
-      document.body.classList.remove('font-vazir')
-      document.body.classList.add('font-serif')
-    }
-
     setAge(bmiSelector.age)
     setHeight(bmiSelector.height)
     setWeight(bmiSelector.weight)
@@ -136,7 +127,7 @@ const Home = () => {
   }
 
   return (
-    <div className="w-full h-screen flex flex-col gap-4 bg-slate-100 dark:bg-slate-900 py-4 px-4">
+    <div className="w-full h-screen flex flex-col gap-3 sm:gap-4 bg-slate-100 dark:bg-slate-900 py-4 px-2 sm:px-4">
       <div className="div-row mx-4">
         <MdLanguage onClick={changeLang} className='bg-action' />
         <h1 className="h2 flex-1">{t('bmi_calculator')}</h1>
@@ -145,29 +136,29 @@ const Home = () => {
           <WiDaySunny onClick={changeTheme} className='bg-action hidden dark:block' />
         </div>
       </div>
-      <section className="w-full h-[calc(100vh-7rem)] grid grid-cols-2 grid-rows-5 gap-x-6 gap-y-4">
+      <section className="w-full h-[calc(100vh-7rem)] grid grid-cols-2 grid-rows-5 gap-x-5 sm:gap-x-6 gap-y-3 sm:gap-y-4">
         <div onClick={() => updateIsMale(false)} className={`bg-item flex items-center justify-center gap-x-4 hover:scale[101%] hover:bg-sky-600 rounded-tr-3xl cursor-pointer ${isMale ? '' : 'bg-sky-500'}`}>
-          <div className="h1 flex flex-row gap-4">
+          <div className="h2 flex flex-row gap-4">
             <IoIosFemale />
-            <p className="h1">{t('female')}</p>
+            <p className="h2">{t('female')}</p>
           </div>
         </div>
 
         <div onClick={() => updateIsMale(true)} className={`bg-item flex items-center justify-center gap-x-4 hover:scale[101%] hover:bg-sky-600 rounded-tl-3xl cursor-pointer ${isMale ? 'bg-sky-500' : ''}`}>
-          <div className="h1 flex flex-row gap-4">
+          <div className="h2 flex flex-row gap-4">
             <IoIosMale />
-            <p className="h1">{t('male')}</p>
+            <p className="h2">{t('male')}</p>
           </div>
         </div>
 
         <div className="bg-item row-span-2 flex flex-col">
           <p className="flex-1 h5">{t('weight')}</p>
           <p className="flex-1 h1">{weight}</p>
-          <div className="flex-1 flex flex-row gap-6 items-center justify-center">
-            <button onClick={() => updateWeight(true)} className="bg-slate-300 dark:bg-slate-900 p-6 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 active:scale-95">
+          <div className="flex-1 flex flex-row gap-4 sm:gap-6 items-center justify-center">
+            <button onClick={() => updateWeight(true)} className="bg-slate-300 dark:bg-slate-900 p-4 sm:p-6 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 active:scale-95">
               <FaPlus />
             </button>
-            <button onClick={() => updateWeight(false)} className="bg-slate-300 dark:bg-slate-900 p-6 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 active:scale-95">
+            <button onClick={() => updateWeight(false)} className="bg-slate-300 dark:bg-slate-900 p-4 sm:p-6 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 active:scale-95">
               <FaMinus />
             </button>
           </div>
@@ -175,12 +166,12 @@ const Home = () => {
 
         <div className="bg-item row-span-4 rounded-bl-3xl flex flex-col overflow-hidden items-center justify-center gap-4">
           <p className="h5">{t('height')}</p>
-          <div className="flex-1 w-full h-full flex flex-col gap-36 items-center justify-center">
-            <button onClick={() => updateHeightOnce(true)} className="bg-slate-300 dark:bg-slate-900 p-6 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 active:scale-95">
+          <div className="flex-1 w-full h-full flex flex-col gap-40 sm:gap-44 items-center justify-center">
+            <button onClick={() => updateHeightOnce(true)} className="bg-slate-300 dark:bg-slate-900 p-4 sm:p-6 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 active:scale-95">
               <FaPlus />
             </button>
             <input ref={inputHeight} onChange={(e) => updateHeight(e)} min={0} max={250} className="bg-slate-100 dark:bg-slate-800 rotate-90" type="range" />
-            <button onClick={() => updateHeightOnce(false)} className="bg-slate-300 dark:bg-slate-900 p-6 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 active:scale-95">
+            <button onClick={() => updateHeightOnce(false)} className="bg-slate-300 dark:bg-slate-900 p-4 sm:p-6 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 active:scale-95">
               <FaMinus />
             </button>
           </div>
@@ -195,11 +186,11 @@ const Home = () => {
         <div className="bg-item row-span-2 rounded-br-3xl flex flex-col">
           <p className="flex-1 h5">{t('age')}</p>
           <p className="flex-1 h1">{age}</p>
-          <div className="flex-1 flex flex-row gap-6 items-center justify-center">
-            <button onClick={() => updateAge(true)} className="bg-slate-300 dark:bg-slate-900 p-6 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 active:scale-95">
+          <div className="flex-1 flex flex-row gap-4 sm:gap-6 items-center justify-center">
+            <button onClick={() => updateAge(true)} className="bg-slate-300 dark:bg-slate-900 p-4 sm:p-6 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 active:scale-95">
               <FaPlus />
             </button>
-            <button onClick={() => updateAge(false)} className="bg-slate-300 dark:bg-slate-900 p-6 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 active:scale-95">
+            <button onClick={() => updateAge(false)} className="bg-slate-300 dark:bg-slate-900 p-4 sm:p-6 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 active:scale-95">
               <FaMinus />
             </button>
           </div>

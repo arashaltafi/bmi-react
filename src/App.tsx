@@ -7,14 +7,25 @@ import Info from "./pages/Info";
 import Result from "./pages/Result";
 import NotFound from "./pages/NotFound";
 import './localiztion/i18nextSetting';
+import { useTranslation } from "react-i18next";
 
 const App = () => {
+  const { i18n } = useTranslation();
 
   useEffect(() => {
     if (localStorage.getItem('theme') === 'dark') {
       document.documentElement.classList.add('dark');
     } else if (localStorage.getItem('theme') === 'light') {
       document.documentElement.classList.remove('dark')
+    }
+
+    i18n.changeLanguage(localStorage.getItem('lang') || 'en');
+    if (localStorage.getItem('lang') === 'en' || !localStorage.getItem('lang')) {
+      document.body.classList.remove('font-vazir')
+      document.body.classList.add('font-serif')
+    } else {
+      document.body.classList.remove('font-serif')
+      document.body.classList.add('font-vazir')
     }
   }, [])
 

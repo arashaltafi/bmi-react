@@ -39,7 +39,7 @@ const Info = () => {
   }
 
   return (
-    <div className="w-full h-screen flex flex-col gap-8 bg-slate-100 dark:bg-slate-900 py-4 px-4">
+    <div className="w-full h-screen flex flex-col gap-8 bg-slate-100 dark:bg-slate-900 py-4 px-4 border-x-2 border-solid border-slate-800/50 dark:border-slate-100/50">
       <div className="div-row mx-4">
         <FaAngleRight onClick={handleNavigateBack} className='bg-action' />
         <h1 className="h2 flex-1">{t('bmi_info')}</h1>
@@ -54,7 +54,7 @@ const Info = () => {
           direction: i18n.language === 'fa' ? 'rtl' : 'ltr'
         }}>
           <p className="h3">{t('your_bmi')}</p>
-          <span className="h1 px-1.5 font-bold">{bmiSelector.bmi}</span>
+          <span className="h1 px-1 sm:px-1.5 font-bold">{bmiSelector.bmi}</span>
         </div>
         <span className={`
             h2
@@ -76,21 +76,21 @@ const Info = () => {
           <p className="h5">{t('underweight')}</p>
         </div>
 
-        <span className="w-full h-[1px] opacity-50 bg-slate-900 dark:bg-slate-100 my-2"></span>
+        <span className="w-full h-[0.5px] sm:h-[1px] opacity-50 bg-slate-900 dark:bg-slate-100 my-2"></span>
 
         <div className="flex flex-row items-center justify-between">
           <p className="h5">{t('18_to_24')}</p>
           <p className="h5">{t('normal_weight')}</p>
         </div>
 
-        <span className="w-full h-[1px] opacity-50 bg-slate-900 dark:bg-slate-100 my-2"></span>
+        <span className="w-full h-[0.5px] sm:h-[1px] opacity-50 bg-slate-900 dark:bg-slate-100 my-2"></span>
 
         <div className="flex flex-row items-center justify-between">
           <p className="h5">{t('25_to_29')}</p>
           <p className="h5">{t('overweight')}</p>
         </div>
 
-        <span className="w-full h-[1px] opacity-50 bg-slate-900 dark:bg-slate-100 my-2"></span>
+        <span className="w-full h-[0.5px] sm:h-[1px] opacity-50 bg-slate-900 dark:bg-slate-100 my-2"></span>
 
         <div className="flex flex-row items-center justify-between">
           <p className="h5">{t('30_and_above')}</p>

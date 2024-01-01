@@ -86,7 +86,7 @@ const Result = () => {
   }
 
   return (
-    <div className="w-full h-screen flex flex-col gap-4 bg-slate-100 dark:bg-slate-900 py-4 px-4">
+    <div className="w-full h-screen flex flex-col gap-4 bg-slate-100 dark:bg-slate-900 py-4 px-4 border-x-2 border-solid border-slate-800/50 dark:border-slate-100/50">
       <div className="div-row mx-4">
         <FaAngleRight onClick={() => handleToNavigate(null)} className='bg-action' />
         <h1 className="h2 flex-1">{t('bmi_result')}</h1>
