@@ -5,6 +5,7 @@ interface NumberState {
     height: number,
     age: number,
     isMale: boolean,
+    bmi: number,
     result: string,
 }
 
@@ -13,6 +14,7 @@ const initialState: NumberState = {
     height: 170,
     age: 26,
     isMale: true,
+    bmi: 0,
     result: ''
 }
 
@@ -31,6 +33,9 @@ const bmiSlice = createSlice({
         },
         setIsMale: (state, action: PayloadAction<boolean>) => {
             state.isMale = action.payload;
+        },
+        setBmi: (state, action: PayloadAction<number>) => {
+            state.bmi = action.payload;
         },
         setResult: (state, action: PayloadAction<string>) => {
             state.result = action.payload;
