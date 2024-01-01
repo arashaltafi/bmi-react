@@ -58,8 +58,24 @@ const Home = () => {
     }
   }
 
+  const updateHeightOnce = (isIncrement: boolean) => {
+    if (isIncrement) {
+      if (height < 250) {
+        setHeight(height + 1)
+      }
+    } else {
+      if (height > 0) {
+        setHeight(height - 1)
+      }
+    }
+
+    if (inputHeight) {
+      inputHeight.current.value = height.toString();
+    }
+  }
+
   const updateHeight = (e: any) => {
-    setHeight(e.target.value)
+    setHeight(parseInt(e.target.value))
   }
 
   const updateIsMale = (isMale: boolean) => {
@@ -115,6 +131,7 @@ const Home = () => {
             <p className="h1">{t('female')}</p>
           </div>
         </div>
+
         <div onClick={() => updateIsMale(true)} className={`bg-item flex items-center justify-center gap-x-4 hover:scale[101%] hover:bg-sky-600 rounded-tl-3xl cursor-pointer ${isMale ? 'bg-sky-500' : ''}`}>
           <div className="h1 flex flex-row gap-4">
             <IoIosMale />
@@ -137,7 +154,15 @@ const Home = () => {
 
         <div className="bg-item row-span-4 rounded-bl-3xl flex flex-col overflow-hidden items-center justify-center gap-4">
           <p className="h5">{t('height')}</p>
-          <input ref={inputHeight} onChange={(e) => updateHeight(e)} min={0} max={250} className="bg-slate-100 dark:bg-slate-800 flex-1 rotate-90" type="range" />
+          <div className="flex-1 w-full h-full flex flex-col gap-36 items-center justify-center">
+            <button onClick={() => updateHeightOnce(true)} className="bg-slate-300 dark:bg-slate-900 p-6 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 active:scale-95">
+              <FaPlus />
+            </button>
+            <input ref={inputHeight} onChange={(e) => updateHeight(e)} min={0} max={250} className="bg-slate-100 dark:bg-slate-800 rotate-90" type="range" />
+            <button onClick={() => updateHeightOnce(false)} className="bg-slate-300 dark:bg-slate-900 p-6 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 active:scale-95">
+              <FaMinus />
+            </button>
+          </div>
           <div className="flex-row flex gap-2">
             <p className="h5 font-bold">{height}</p>
             <p className="h6">{t('cm')}</p>
