@@ -167,12 +167,12 @@ const Home = () => {
         <div className="bg-item row-span-4 rounded-bl-3xl flex flex-col overflow-x-hidden items-center justify-center gap-2">
           <p className="h5">{t('height')}</p>
           <div className="flex-1 w-full h-full rotate-90 flex flex-row gap-4 items-center justify-center">
-            <button onClick={() => updateHeightOnce(true)} className="bg-slate-300 dark:bg-slate-900 p-4 sm:p-6 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 active:scale-95">
-              <FaPlus />
+            <button onClick={() => updateHeightOnce(false)} className="rotate-90 bg-slate-300 dark:bg-slate-900 p-4 sm:p-6 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 active:scale-95">
+              <FaMinus />
             </button>
             <input ref={inputHeight} onChange={(e) => updateHeight(e)} min={0} max={250} className="my-4 bg-slate-100 dark:bg-slate-800" type="range" />
-            <button onClick={() => updateHeightOnce(false)} className="bg-slate-300 dark:bg-slate-900 p-4 sm:p-6 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 active:scale-95">
-              <FaMinus />
+            <button onClick={() => updateHeightOnce(true)} className="bg-slate-300 dark:bg-slate-900 p-4 sm:p-6 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 active:scale-95">
+              <FaPlus />
             </button>
           </div>
           <div className="flex-row flex gap-2" style={{
