@@ -51,8 +51,8 @@ const ScrollToTop = () => {
     return (
         <div
             ref={mainRef}>
-            {loading ? <div className='w-full h-screen bg-zinc-950 flex items-center justify-center'>
-                <BounceLoader color="#FFF176" />
+            {loading ? <div className='w-full h-screen bg-slate-100 dark:bg-slate-900 flex items-center justify-center'>
+                <BounceLoader color="#FFEB3B" />
             </div>
                 : <Outlet />}
         </div>
