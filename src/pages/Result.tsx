@@ -3,7 +3,7 @@ import locationSlice from "../redux/locationSlice";
 import { useLocation, useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
-import bmiSlice from "../redux/BmiSlice";
+import bmiSlice from "../redux/bmiSlice";
 import { FaAngleRight } from "react-icons/fa6";
 import { MdOutlineNightlight } from "react-icons/md";
 import { WiDaySunny } from "react-icons/wi";
