@@ -32,9 +32,11 @@ const Home = () => {
     }]));
 
     i18n.changeLanguage(localStorage.getItem('lang') || 'fa');
-    if (localStorage.getItem('lang') === 'fa') {
+    if (localStorage.getItem('lang') === 'fa' || !localStorage.getItem('lang')) {
+      document.body.classList.remove('font-serif')
       document.body.classList.add('font-vazir')
     } else {
+      document.body.classList.remove('font-vazir')
       document.body.classList.add('font-serif')
     }
 
@@ -122,10 +124,12 @@ const Home = () => {
     if (i18n.language === 'en') {
       localStorage.setItem('lang', 'fa');
       i18n.changeLanguage('fa');
+      document.body.classList.remove('font-serif')
       document.body.classList.add('font-vazir')
     } else {
       localStorage.setItem('lang', 'en')
       i18n.changeLanguage('en');
+      document.body.classList.remove('font-vazir')
       document.body.classList.add('font-serif')
     }
     window.location.reload()
