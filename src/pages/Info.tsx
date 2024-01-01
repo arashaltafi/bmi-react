@@ -49,8 +49,12 @@ const Info = () => {
         </div>
       </div>
 
-      <section className="bg-item flex flex-row items-center justify-center gap-2 py-8 mt-4">
-        <span className="text-red-500 h4">{bmiSelector.result}</span><span className="h1 px-1.5 font-bold">{bmiSelector.bmi}</span><p className="h4">Your BMI </p>
+      <section className="bg-item flex flex-col items-center justify-center gap-4 py-8 mt-4">
+        <div className="flex flex-row gap-2 items-center justify-center">
+          <p className="h3">{t('your_bmi')}</p>
+          <span className="h1 px-1.5 font-bold">{bmiSelector.bmi}</span>
+        </div>
+        <span className="text-red-500 h2">{bmiSelector.result}</span>
       </section>
 
       <section className='bg-item flex-1 flex flex-col items-center justify-start gap-4 py-8 child:w-full child:px-4'>
