@@ -5,7 +5,7 @@
 // delete(delete caches)
 // match (get cache file)
 
-const cacheVersion = 1;
+const cacheVersion = 2;
 const activeCache = {
     static: `static-v${cacheVersion}`,
     dynamic: `dynamic-v${cacheVersion}`
