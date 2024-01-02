@@ -22,5 +22,6 @@
     "18_to_24": "18.5 To 24.9",
     "25_to_29": "25.0 To 29.9",
     "30_and_above": "30.0 And Above",
-    "rotate": "Please Rotate Your Device To Portrait"
+    "rotate": "Please Rotate Your Device To Portrait",
+    "not_found": "NotFound | 404"
 }
